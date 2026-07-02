@@ -596,7 +596,7 @@ function updateAllDisplays() {
   const galvEl = document.getElementById('galvDeflection');
   galvEl.textContent = state.batteryOn ? galvDefl.toFixed(2) : '0.00';
   
-  if (state.batteryOn && Math.abs(galvDefl) < 0.5) {
+  if (state.batteryOn && Math.abs(galvDefl) < 1) {
     galvEl.className = 'galvanometer-value null';
   } else {
     galvEl.className = 'galvanometer-value deflected';
@@ -607,7 +607,7 @@ function updateAllDisplays() {
   document.getElementById('liveResX').innerHTML = state.resistanceX.toFixed(1) + '<span class="m-unit"> Ω</span>';
   document.getElementById('liveGalv').innerHTML = (state.batteryOn ? galvDefl.toFixed(2) : '0.00') + '<span class="m-unit"> µA</span>';
   
-  if (state.batteryOn && Math.abs(galvDefl) < 0.5) {
+  if (state.batteryOn && Math.abs(galvDefl) < 1) {
     document.getElementById('liveBalance').innerHTML = '<span style="color:var(--accent-green);">✓ NULL</span>';
   } else if (state.batteryOn) {
     document.getElementById('liveBalance').textContent = '—';
